@@ -1,0 +1,42 @@
+eureka:
+    instance:
+        prefer-ip-address: true
+        lease-expiration-duration-in-seconds: 90
+        lease-renewal-interval-in-seconds: 30
+    client:
+        healthcheck: enabled
+        instance.:
+            preferIpAddress: true
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8112/eureka/
+spring:
+    rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+    application:
+        name: ssa-config
+    profiles:
+        active: git
+    cloud:
+        config:
+            server:
+                git:
+                    uri: http://192.168.1.199:808/configGroup/ssa-cloud-config.git
+                    search-paths: /auth
+                    username: configAdmin
+                    password: 1qaz@WSX
+                    order: 1
+        bus:
+            refresh:
+                enabled: true
+            trace:
+                enabled: true
+            enabled: true
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+server:
+    port: 8707
+logging.level.org.springframework.cloud.bus: trace

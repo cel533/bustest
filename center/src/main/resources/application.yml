@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: ssa-center
+server:
+    port: 8112
+eureka:
+    server:
+      eviction-interval-timer-in-ms: 20000
+      enable-self-preservation: false
+    instance:
+        preferIpAddress: true
+    client:
+        healthcheck: enabled
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+            defaultZone: http://127.0.0.1:${server.port}/eureka/
