@@ -6,7 +6,7 @@ server:
 eureka:
     server:
       eviction-interval-timer-in-ms: 20000
-      enable-self-preservation: false
+      enable-self-preservation: true
     instance:
         preferIpAddress: true
     client:
